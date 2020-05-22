@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../all_app_example/all_app_example.iml" filepath="$PROJECT_DIR$/../all_app_example/all_app_example.iml" group="recylerviewexample5/all_app_example" />
+      <module fileurl="file://$PROJECT_DIR$/../app/app.iml" filepath="$PROJECT_DIR$/../app/app.iml" group="recylerviewexample5/app" />
+      <module fileurl="file://$PROJECT_DIR$/../app_morelivedata/app_morelivedata.iml" filepath="$PROJECT_DIR$/../app_morelivedata/app_morelivedata.iml" group="recylerviewexample5/app_morelivedata" />
+      <module fileurl="file://$PROJECT_DIR$/../app_room/app_room.iml" filepath="$PROJECT_DIR$/../app_room/app_room.iml" group="recylerviewexample5/app_room" />
+      <module fileurl="file://$PROJECT_DIR$/../app_room_live_data/app_room_live_data.iml" filepath="$PROJECT_DIR$/../app_room_live_data/app_room_live_data.iml" group="recylerviewexample5/app_room_live_data" />
+      <module fileurl="file://$PROJECT_DIR$/../app_with_provider/app_with_provider.iml" filepath="$PROJECT_DIR$/../app_with_provider/app_with_provider.iml" group="recylerviewexample5/app_with_provider" />
+      <module fileurl="file://$PROJECT_DIR$/../asyncexample/asyncexample.iml" filepath="$PROJECT_DIR$/../asyncexample/asyncexample.iml" group="recylerviewexample5/asyncexample" />
+      <module fileurl="file://$PROJECT_DIR$/../dz1_work/dz1_work.iml" filepath="$PROJECT_DIR$/../dz1_work/dz1_work.iml" group="recylerviewexample5/dz1_work" />
+      <module fileurl="file://$PROJECT_DIR$/../fragmentexample/fragmentexample.iml" filepath="$PROJECT_DIR$/../fragmentexample/fragmentexample.iml" group="recylerviewexample5/fragmentexample" />
+      <module fileurl="file://$PROJECT_DIR$/fragmentsinteractiondemo.iml" filepath="$PROJECT_DIR$/fragmentsinteractiondemo.iml" group="recylerviewexample5/fragmentsinteractiondemo" />
+      <module fileurl="file://$PROJECT_DIR$/../mydraw/mydraw.iml" filepath="$PROJECT_DIR$/../mydraw/mydraw.iml" group="recylerviewexample5/mydraw" />
+      <module fileurl="file://$PROJECT_DIR$/../recylerviewexample5.iml" filepath="$PROJECT_DIR$/../recylerviewexample5.iml" group="recylerviewexample5" />
+      <module fileurl="file://$PROJECT_DIR$/../tictactoe/tictactoe.iml" filepath="$PROJECT_DIR$/../tictactoe/tictactoe.iml" group="recylerviewexample5/tictactoe" />
+      <module fileurl="file://$PROJECT_DIR$/../userforprovider/userforprovider.iml" filepath="$PROJECT_DIR$/../userforprovider/userforprovider.iml" group="recylerviewexample5/userforprovider" />
+      <module fileurl="file://$PROJECT_DIR$/../viewmodelexample/viewmodelexample.iml" filepath="$PROJECT_DIR$/../viewmodelexample/viewmodelexample.iml" group="recylerviewexample5/viewmodelexample" />
+    </modules>
+  </component>
+</project>

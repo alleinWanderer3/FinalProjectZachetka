@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "813002533287",
+    "firebase_url": "https://zachetka-58790.firebaseio.com",
+    "project_id": "zachetka-58790",
+    "storage_bucket": "zachetka-58790.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:813002533287:android:ef360e3092f67f08f5ae82",
+        "android_client_info": {
+          "package_name": "com.example.firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "813002533287-lv6ng5r7mmf42hdcutpojakde4blicrj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.firebase",
+            "certificate_hash": "ef637760cc89c33519d64c467888dc2875e4ac1b"
+          }
+        },
+        {
+          "client_id": "813002533287-15te17bbbpa25dosnk6o2nmvmsu4rogn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrQK27MUYqx4SJj15DFzCul4rJswmnsOM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "813002533287-15te17bbbpa25dosnk6o2nmvmsu4rogn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
