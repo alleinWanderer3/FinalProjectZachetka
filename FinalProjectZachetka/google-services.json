@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "255607776717",
+    "firebase_url": "https://final-project-zachetka.firebaseio.com",
+    "project_id": "final-project-zachetka",
+    "storage_bucket": "final-project-zachetka.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:255607776717:android:be352f88e7a4f37a0f1084",
+        "android_client_info": {
+          "package_name": "com.example.finalprojectzachetka"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "255607776717-3nnl05ieedkjt2uo6csa7cmg6328hfha.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.finalprojectzachetka",
+            "certificate_hash": "ef637760cc89c33519d64c467888dc2875e4ac1b"
+          }
+        },
+        {
+          "client_id": "255607776717-n8vti3kgps6s7a249c7q3h72jkg6eki6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArJPmj4TTonuUfocT_8eLAuvSDcsbdq6Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "255607776717-n8vti3kgps6s7a249c7q3h72jkg6eki6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

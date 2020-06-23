@@ -1,17 +1,8 @@
 package com.example.finalprojectzachetka.ui.login;
 
 import android.app.Activity;
-
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
-
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
@@ -23,12 +14,16 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.finalprojectzachetka.R;
-import com.example.finalprojectzachetka.Student;
-import com.example.finalprojectzachetka.ui.login.LoginViewModel;
-import com.example.finalprojectzachetka.ui.login.LoginViewModelFactory;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 
-public class LoginActivity extends AppCompatActivity {
+import com.example.finalprojectzachetka.R;
+import com.example.finalprojectzachetka.TeacherActivity;
+
+public class LoginActivityTeacher extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
 
@@ -126,8 +121,9 @@ public class LoginActivity extends AppCompatActivity {
         String welcome = getString(R.string.welcome) + model.getDisplayName();
         // TODO : initiate successful logged in experience
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
-        Intent screen_student = new Intent(this, Student.class);
-        startActivity(screen_student);
+
+        Intent change_teacher = new Intent(this, TeacherActivity.class);
+        startActivity(change_teacher);
     }
 
     private void showLoginFailed(@StringRes Integer errorString) {

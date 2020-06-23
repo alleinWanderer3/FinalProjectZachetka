@@ -2,6 +2,8 @@ package com.example.finalprojectzachetka.ui.login;
 
 import androidx.annotation.Nullable;
 
+import com.google.firebase.auth.FirebaseUser;
+
 /**
  * Authentication result : success (user details) or error message.
  */
@@ -20,7 +22,7 @@ class LoginResult {
     }
 
     @Nullable
-    LoggedInUserView getSuccess() {
+    FirebaseUser getSuccess() {
         return success;
     }
 
