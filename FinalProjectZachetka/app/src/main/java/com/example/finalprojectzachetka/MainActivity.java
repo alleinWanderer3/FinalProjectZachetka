@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.finalprojectzachetka.ui.login.LoginActivity;
-import com.example.finalprojectzachetka.ui.login.LoginActivityTeacher;
 
 import static com.example.finalprojectzachetka.R.id.student;
 
@@ -50,8 +49,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             Button teacher = (Button) findViewById(R.id.teacher);
             teacher.setOnClickListener((View.OnClickListener) this);
-            Intent login_teacher = new Intent(this, LoginActivityTeacher.class);
-            startActivity(login_teacher);
+            //Intent login_teacher = new Intent(this, LoginActivityTeacher.class);
+         //   startActivity(login_teacher);
 
                 break;
             default:
