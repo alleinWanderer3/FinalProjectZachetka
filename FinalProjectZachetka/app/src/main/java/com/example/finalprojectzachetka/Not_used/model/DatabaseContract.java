@@ -1,4 +1,4 @@
-package com.example.finalprojectzachetka;
+package com.example.finalprojectzachetka.Not_used.model;
 
 import android.provider.BaseColumns;
 
@@ -9,7 +9,7 @@ public class DatabaseContract {
         public static class disciplines {
 
             /** Default "ORDER BY" clause. */
-            //сортируем по фамилии в убывающем порядке
+            //сортируем  в убывающем порядке
             public static final String DEFAULT_SORT = NamesColumns.disc + " DESC";
             //имя таблицы
             public static final String TABLE_NAME = "DISCIPLINES";

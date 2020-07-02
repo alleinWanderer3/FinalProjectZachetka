@@ -27,6 +27,7 @@ import android.widget.Toast;
 
 import com.example.finalprojectzachetka.R;
 import com.example.finalprojectzachetka.Student;
+import com.example.finalprojectzachetka.User.ChooseMode;
 import com.example.finalprojectzachetka.User.User;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -140,6 +141,11 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void updateUI(Object o) {
+
+
+        Intent choose_mode = new Intent(this, ChooseMode.class);
+        startActivity(choose_mode);
+
 
     }
 

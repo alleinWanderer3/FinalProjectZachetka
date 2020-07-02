@@ -22,8 +22,8 @@ public class Student extends AppCompatActivity implements View.OnClickListener{
     public void onClick(View v) {
         Button disciplines = (Button) findViewById(R.id.disciplines);
         disciplines.setOnClickListener((View.OnClickListener) this);
-       // Intent show_disciplines = new Intent(this, DisciplinesActivity.class);
-       // startActivity(show_disciplines);
+      Intent show_disciplines = new Intent(this, DisciplinesActivity.class);
+      startActivity(show_disciplines);
     }
 
     @Override

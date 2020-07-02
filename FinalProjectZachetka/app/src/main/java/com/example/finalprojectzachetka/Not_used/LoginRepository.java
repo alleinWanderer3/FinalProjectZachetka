@@ -1,6 +1,6 @@
-package com.example.finalprojectzachetka.data;
+package com.example.finalprojectzachetka.Not_used;
 
-import com.example.finalprojectzachetka.data.model.LoggedInUser;
+import com.example.finalprojectzachetka.Not_used.model.LoggedInUser;
 
 /**
  * Class that requests authentication and user information from the remote data source and

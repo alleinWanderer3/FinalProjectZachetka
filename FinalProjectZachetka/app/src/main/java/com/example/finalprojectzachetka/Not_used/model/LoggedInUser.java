@@ -1,4 +1,4 @@
-package com.example.finalprojectzachetka.data.model;
+package com.example.finalprojectzachetka.Not_used.model;
 
 /**
  * Data class that captures user information for logged in users retrieved from LoginRepository

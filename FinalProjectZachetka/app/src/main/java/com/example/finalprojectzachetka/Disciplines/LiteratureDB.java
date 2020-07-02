@@ -8,7 +8,9 @@ import androidx.room.RoomDatabase;
 @Database(entities = {Teachers.class, TeachersLiterature.class, Listliterature.class}, version =  1)
   public abstract class LiteratureDB extends RoomDatabase {
 
-public abstract LiteratureDAO getLiteratureDAO();
+  public static LiteratureDAO getLiteratureDAO() {
+    return null;
+  }
 
 
     /*LiteratureDB db =  Room.databaseBuilder(getApplicationContext(),

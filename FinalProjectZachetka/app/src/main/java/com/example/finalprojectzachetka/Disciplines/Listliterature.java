@@ -16,8 +16,7 @@ import androidx.room.PrimaryKey;
 @ColumnInfo(name = "link")
         public String mLink;
 
-        public Listliterature() {
-        }
+
 
         public Listliterature(int mId, String mNameDiscipline, String mLink) {
             this.mId = mId;
