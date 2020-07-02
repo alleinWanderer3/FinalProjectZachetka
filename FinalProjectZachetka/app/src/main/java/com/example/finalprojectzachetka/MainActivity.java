@@ -151,10 +151,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent choose_student = new Intent(this, Student.class);
                 startActivity(choose_student);
 
-                Button student = (Button) findViewById(R.id.student);
-                student.setOnClickListener((View.OnClickListener) this);
-                Intent student_go = new Intent(this, Student.class);
-                startActivity(student_go);
+
 
                 // TODO Call second activity
                 break;
@@ -163,13 +160,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent choose_teacher = new Intent(this, TeacherActivity.class);
                 startActivity(choose_teacher);
 
-            Button teacher = (Button) findViewById(R.id.teacher);
-            teacher.setOnClickListener((View.OnClickListener) this);
-            Intent teacher_go = new Intent(this, TeacherActivity.class);
-       startActivity(teacher_go);
-
-                break;
-            default:
                 break;
         }
 

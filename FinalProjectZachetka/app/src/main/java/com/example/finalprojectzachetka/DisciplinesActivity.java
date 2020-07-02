@@ -7,15 +7,16 @@ import android.view.MenuItem;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finalprojectzachetka.Disciplines.AppDBLiterature;
-import com.example.finalprojectzachetka.Disciplines.DBHelper;
 import com.example.finalprojectzachetka.Disciplines.Listliterature;
-import com.example.finalprojectzachetka.Disciplines.LiteratureDAO;
 
-class DisciplinesActivity extends AppCompatActivity implements RoomAdapter.OnDeleteListener {
+import java.util.List;
+
+public class DisciplinesActivity extends AppCompatActivity implements RoomAdapter.OnDeleteListener {
 
     //private Button mbtnAdd;
     Button mbtnGet;
@@ -31,12 +32,17 @@ class DisciplinesActivity extends AppCompatActivity implements RoomAdapter.OnDel
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ((AppDBLiterature)getApplication()).getmLiteratureDB().
+        ((AppDBLiterature)getApplication()).getmLiteratureDB().getLiteratureDAO().getListliteratures().observe(this, new Observer<List<Listliterature>>() {
+            @Override
+            public void onChanged(List<Listliterature> listliteratures) {
+                recyclerView.setAdapter(new RoomAdapter(getApplicationContext(),listliteratures));
+            }
+        });
         setContentView(R.layout.show_literature);
         recyclerView = findViewById(R.id.listOfDisc);
         //   RoomAdapter.bind(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        recyclerView.setAdapter(new RoomAdapter(this, null));
+
 
         // dbHelper = AppDBLiterature.getInstance().getDatabaseInstance();
     }

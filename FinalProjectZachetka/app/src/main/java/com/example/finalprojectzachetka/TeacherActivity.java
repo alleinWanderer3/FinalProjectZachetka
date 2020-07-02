@@ -4,30 +4,21 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
-import androidx.room.Room;
 
-import android.content.ContentProvider;
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.finalprojectzachetka.Disciplines.AppDBLiterature;
+import com.example.finalprojectzachetka.Disciplines.Listliterature;
 import com.example.finalprojectzachetka.Disciplines.LiteratureDAO;
-import com.example.finalprojectzachetka.Disciplines.LiteratureDB;
 import com.example.finalprojectzachetka.Disciplines.Teachers;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-import java.util.function.Function;
-import java.util.prefs.Preferences;
 
 public class TeacherActivity extends AppCompatActivity {
 
@@ -50,7 +41,7 @@ public class TeacherActivity extends AppCompatActivity {
                 new Thread(){
                     @Override
                     public void run() {
-                        literatureDAO.insertTeachers(createTeachers());
+                        literatureDAO.insertListliteratures(Arrays.asList(new Listliterature(new Random().nextInt(),"LinearAlgebra", "google inc")));
                     }
                 }.start();
 

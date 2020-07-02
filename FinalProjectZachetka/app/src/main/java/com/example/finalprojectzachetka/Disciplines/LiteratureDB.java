@@ -1,20 +1,13 @@
 package com.example.finalprojectzachetka.Disciplines;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-
-import androidx.annotation.Nullable;
 import androidx.room.Database;
 import androidx.room.DatabaseConfiguration;
 import androidx.room.InvalidationTracker;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteOpenHelper;
 
-import com.example.finalprojectzachetka.Disciplines.Listliterature;
-import com.example.finalprojectzachetka.Disciplines.LiteratureDB;
 @Database(entities = {Teachers.class, TeachersLiterature.class, Listliterature.class}, version =  1, exportSchema = false)
-public abstract class DBHelper extends RoomDatabase {
+public abstract class LiteratureDB extends RoomDatabase {
 
     public abstract LiteratureDAO getLiteratureDAO();
 
