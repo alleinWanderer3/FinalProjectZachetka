@@ -1,71 +1,149 @@
 package com.example.finalprojectzachetka;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.view.View;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
-import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LiveData;
-import androidx.room.Database;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finalprojectzachetka.Disciplines.AppDBLiterature;
+import com.example.finalprojectzachetka.Disciplines.DBHelper;
+import com.example.finalprojectzachetka.Disciplines.Listliterature;
 import com.example.finalprojectzachetka.Disciplines.LiteratureDAO;
-import com.example.finalprojectzachetka.Disciplines.LiteratureDB;
-import com.example.finalprojectzachetka.Disciplines.Teachers;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
+class DisciplinesActivity extends AppCompatActivity implements RoomAdapter.OnDeleteListener {
 
-class DisciplinesActivity extends AppCompatActivity {
+    //private Button mbtnAdd;
+    Button mbtnGet;
+    RoomAdapter adapter;
+    RecyclerView recyclerView;
 
-    private Button mbtnAdd;
+//    public static void bind(RoomAdapter.LiteratureViewHolder literatureViewHolder, View itemView) {
+//    }
 
-    private Button mbtnGet;
 
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_teacher);
 
+        ((AppDBLiterature)getApplication()).getmLiteratureDB().
+        setContentView(R.layout.show_literature);
+        recyclerView = findViewById(R.id.listOfDisc);
+        //   RoomAdapter.bind(this);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        recyclerView.setAdapter(new RoomAdapter(this, null));
 
-        final LiteratureDAO literatureDAO = ((AppDBLiterature) getApplicationContext()).getmLiteratureDB().getLiteratureDAO();
-        mbtnAdd = (findViewById(R.id.btnAdd));
-        mbtnAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                literatureDAO.insertTeachers(createTeachers());
-            }
-        });
-        mbtnGet = findViewById(R.id.btnRead);
-        mbtnGet.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                showToast(literatureDAO.getTeachers());
-            }
-        });
-
+        // dbHelper = AppDBLiterature.getInstance().getDatabaseInstance();
     }
 
-    private List<Teachers> createTeachers() {
 
-        List<Teachers> teachers = new ArrayList<>(25);
-        for (int i = 0; i < 10; i++) {
-            teachers.add(new Teachers(i, "teacher" + i, "Link" + System.currentTimeMillis()));
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_add_button, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_add: {
+                startActivity(new Intent(this, RoomAdapter.class));
+                break;
+            }
         }
-        return teachers;
+        return false;
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+      //  RoomAdapter roomAdapter = new RoomAdapter(this, LiteratureDAO.getAllData());
+     //   roomAdapter.setOnDeleteListener(this);
+      //  recyclerView.setAdapter(roomAdapter);
+    }
 
-    private void showToast(LiveData<List<Teachers>> teachers) {
-        StringBuilder builder = new StringBuilder();
+    @Override
+    public void onDelete(Listliterature dataModel) {
+       // LiteratureDB.getLiteratureDAO().delete(dataModel);
     }
 }
+
+//}
+
+
+
+
+
+
+
+
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_main);
+//
+//        rvList = (RecyclerView) findViewById(R.id.rvList);
+//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+//        rvList.setLayoutManager(linearLayoutManager);
+//
+//        BludoDao bludoDao = (BludoDao) AppDatabase.createPersistentDatabase(getApplicationContext()).bludoDao();
+//        bludoDao.getAll().observe(this, (List<Bludo> bludoList) -> {
+//            adapter = new RoomAdapter(MainActivity.this, bludoList);
+//            rvList.setAdapter(adapter);
+//        });
+//
+//    }
+//}
+//    @Override
+//    public void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.show_literature);
+//
+//        Button mbtnGet = (Button) findViewById(R.id.btn_get);
+//        mbtnGet.setOnClickListener(((View.OnClickListener) this));
+//        List<Listliterature> list = Listliterature.getmLink();
+//
+//        final LiteratureDAO literatureDAO = ((AppDBLiterature) getApplicationContext()).getmLiteratureDB().getLiteratureDAO();
+//    }
+//}
+
+
+
+//        mbtnAdd = (findViewById(R.id.btnAdd));
+//        mbtnAdd.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                literatureDAO.insertTeachers(createTeachers());
+//            }
+//        });
+//        mbtnGet = findViewById(R.id.btnRead);
+//        mbtnGet.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//                showToast(literatureDAO.getTeachers());
+//            }
+//        });
+//
+//    }
+//
+//    private List<Teachers> createTeachers() {
+//
+//        List<Teachers> teachers = new ArrayList<>(25);
+//        for (int i = 0; i < 10; i++) {
+//            teachers.add(new Teachers(i, "teacher" + i, "Link" + System.currentTimeMillis()));
+//        }
+//        return teachers;
+//    }
+//
+//
+//    private void showToast(LiveData<List<Teachers>> teachers) {
+//        StringBuilder builder = new StringBuilder();
+//    }
+//}
        /* for(int h=0, mID = Teachers.m(); h<mID; h++){
             builder.append(teachers.toString()).append("\n");
 

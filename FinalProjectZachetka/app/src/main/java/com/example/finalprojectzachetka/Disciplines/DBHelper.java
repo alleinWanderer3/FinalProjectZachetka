@@ -13,8 +13,7 @@ import androidx.sqlite.db.SupportSQLiteOpenHelper;
 
 import com.example.finalprojectzachetka.Disciplines.Listliterature;
 import com.example.finalprojectzachetka.Disciplines.LiteratureDB;
-
-@Database(entities = { LiteratureDB.class }, version = 1, exportSchema = false)
+@Database(entities = {Teachers.class, TeachersLiterature.class, Listliterature.class}, version =  1, exportSchema = false)
 public abstract class DBHelper extends RoomDatabase {
 
     public abstract LiteratureDAO getLiteratureDAO();
