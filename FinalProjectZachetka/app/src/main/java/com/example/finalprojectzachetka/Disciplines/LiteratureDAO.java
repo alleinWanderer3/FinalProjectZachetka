@@ -14,23 +14,27 @@ import java.util.List;
     @Dao
     public interface LiteratureDAO {
 
-        @Query("SELECT * FROM Teachers")
-        LiveData<List<Teachers>> getTeachers();
+//        @Query("SELECT * FROM Teachers")
+////        LiveData<List<Teachers>> getTeachers();
 
         @Query("SELECT * FROM Listliterature")
         LiveData<List<Listliterature>> getListliteratures();
 
-        @Insert(onConflict = OnConflictStrategy.REPLACE) //сравнение по праймари кей,если что новый объект заменит старый
-        void insertTeachers(List<Teachers> teachers);
+      //  void insertTeachers(List<Teachers> teachers);
+      @Insert
+      void insert(Listliterature listliterature);
 
-        @Insert(onConflict = OnConflictStrategy.REPLACE) //сравнение по праймари кей,если что новый объект заменит старый
-        void insertListliteratures(List<Listliterature> listliteratures);
+        @Update
+        void update(Listliterature listliterature);
 
-        @Insert(onConflict = OnConflictStrategy.REPLACE) //сравнение по праймари кей,если что новый объект заменит старый
-        void setLinksTeachersLiterature(List<TeachersLiterature> teachersLiterature);
+        @Delete
+        void delete(Listliterature listliterature);
+
+    }
+       // @Insert(onConflict = OnConflictStrategy.REPLACE) //сравнение по праймари кей,если что новый объект заменит старый
+        //void setLinksTeachersLiterature(List<TeachersLiterature> teachersLiterature);
+
 
         //@Query("SELECT * FROM Listliterature inner join TeachersLiterature on Listliterature.id=TeachersLiterature.Listliterature_id where)
        // List<Listliterature> getLiteraturefromTeacher(int TeachderID;
-
-    }
 

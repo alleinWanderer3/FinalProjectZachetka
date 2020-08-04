@@ -6,21 +6,27 @@ import androidx.room.InvalidationTracker;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteOpenHelper;
 
-@Database(entities = {Teachers.class, TeachersLiterature.class, Listliterature.class}, version =  1, exportSchema = false)
+@Database(entities = {Listliterature.class}, version = 1)
 public abstract class LiteratureDB extends RoomDatabase {
-
-    public abstract LiteratureDAO getLiteratureDAO();
-
-    @Override
-    protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration config) {
-        return null;
-    }
-
-    @Override
-    protected InvalidationTracker createInvalidationTracker() {
-        return null;
-    }
+    public abstract LiteratureDAO literatureDAO();
 }
+
+
+//@Database(entities = {Teachers.class, TeachersLiterature.class, Listliterature.class}, version =  1, exportSchema = false)
+//public abstract class LiteratureDB extends RoomDatabase {
+//
+//    public abstract LiteratureDAO getLiteratureDAO();
+//
+//    @Override
+//    protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration config) {
+//        return null;
+//    }
+//
+//    @Override
+//    protected InvalidationTracker createInvalidationTracker() {
+//        return null;
+//    }
+//}
 
 
 

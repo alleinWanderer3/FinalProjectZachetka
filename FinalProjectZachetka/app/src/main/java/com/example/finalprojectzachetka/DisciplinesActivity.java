@@ -6,13 +6,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.DatabaseConfiguration;
+import androidx.room.InvalidationTracker;
+import androidx.sqlite.db.SupportSQLiteOpenHelper;
 
 import com.example.finalprojectzachetka.Disciplines.AppDBLiterature;
 import com.example.finalprojectzachetka.Disciplines.Listliterature;
+import com.example.finalprojectzachetka.Disciplines.LiteratureDAO;
+import com.example.finalprojectzachetka.Disciplines.LiteratureDB;
 
 import java.util.List;
 
@@ -26,13 +32,37 @@ public class DisciplinesActivity extends AppCompatActivity implements RoomAdapte
 //    public static void bind(RoomAdapter.LiteratureViewHolder literatureViewHolder, View itemView) {
 //    }
 
+//    LiteratureDB db = new LiteratureDB() {
+//        @Override
+//        public LiteratureDAO literatureDAO() {
+//            return null;
+//        }
+//
+//        @NonNull
+//        @Override
+//        protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration config) {
+//            return null;
+//        }
+//
+//        @NonNull
+//        @Override
+//        protected InvalidationTracker createInvalidationTracker() {
+//            return null;
+//        }
+//
+//        @Override
+//        public void clearAllTables() {
+//
+//        }
+//    };
 
-
+    LiteratureDB appDBLiterature = AppDBLiterature.getInstance().getDatabase();
+    LiteratureDAO literatureDAO  = appDBLiterature.literatureDAO();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ((AppDBLiterature)getApplication()).getmLiteratureDB().getLiteratureDAO().getListliteratures().observe(this, new Observer<List<Listliterature>>() {
+        literatureDAO.getListliteratures().observe(this, new Observer<List<Listliterature>>() {
             @Override
             public void onChanged(List<Listliterature> listliteratures) {
                 recyclerView.setAdapter(new RoomAdapter(getApplicationContext(),listliteratures));

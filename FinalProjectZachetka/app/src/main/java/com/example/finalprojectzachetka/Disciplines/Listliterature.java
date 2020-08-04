@@ -6,9 +6,9 @@ import androidx.room.PrimaryKey;
 
 
     @Entity //аннотация
-    public class Listliterature {
+    public class Listliterature{
+@PrimaryKey(autoGenerate = true)
 
-@PrimaryKey
 @ColumnInfo(name = "id")
         public int mId;
 @ColumnInfo(name = "name")
@@ -18,11 +18,16 @@ import androidx.room.PrimaryKey;
 
 
 
-        public Listliterature(int mId, String mNameDiscipline, String mLink) {
-            this.mId = mId;
+
+
+        public Listliterature() {
+            this.mId = 0;
             this.mNameDiscipline = mNameDiscipline;
+
             this.mLink = mLink;
         }
+
+
 
         public int getmId() {
             return mId;

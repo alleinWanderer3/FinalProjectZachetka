@@ -1,24 +1,31 @@
 package com.example.finalprojectzachetka.Disciplines;
 
 import android.app.Application;
-import android.os.Bundle;
+import android.widget.EditText;
 
 import androidx.room.Room;
-
  public class AppDBLiterature extends Application {
-     private LiteratureDB mLiteratureDB;
+     public static LiteratureDB mLiteratureDB;
+     public static AppDBLiterature instance;
 
      @Override
      public void onCreate() {
          super.onCreate();
-
+         instance = this;
          mLiteratureDB = Room.databaseBuilder(getApplicationContext(), LiteratureDB.class, "literature_db")
                  .build();
 
+
+
+
      }
 
-     public LiteratureDB getmLiteratureDB() {
+     public static LiteratureDB getDatabase() {
          return mLiteratureDB;
+     }
+     public static AppDBLiterature getInstance() {
+         return instance;
+
      }
  }
 

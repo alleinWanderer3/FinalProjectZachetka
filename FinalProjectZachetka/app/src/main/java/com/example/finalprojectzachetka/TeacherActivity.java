@@ -1,23 +1,34 @@
 package com.example.finalprojectzachetka;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
+import androidx.room.DatabaseConfiguration;
+import androidx.room.InvalidationTracker;
+import androidx.room.Room;
+import androidx.sqlite.db.SupportSQLiteOpenHelper;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.finalprojectzachetka.Disciplines.AppDBLiterature;
 import com.example.finalprojectzachetka.Disciplines.Listliterature;
 import com.example.finalprojectzachetka.Disciplines.LiteratureDAO;
+import com.example.finalprojectzachetka.Disciplines.LiteratureDB;
 import com.example.finalprojectzachetka.Disciplines.Teachers;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Random;
 
 public class TeacherActivity extends AppCompatActivity {
@@ -25,40 +36,66 @@ public class TeacherActivity extends AppCompatActivity {
     private Button mbtnAdd;
 
     private Button mbtnGet;
-
-
+    EditText Discipline;
+    EditText Links;
+public int mId;
+    public String mNameDiscipline;
+    String mLink;
+    LiteratureDB appDBLiterature = AppDBLiterature.getInstance().getDatabase();
+    LiteratureDAO literatureDAO  = appDBLiterature.literatureDAO();
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher);
 
 
-        final LiteratureDAO literatureDAO = ((AppDBLiterature) getApplicationContext()).getmLiteratureDB().getLiteratureDAO();
+      //  final LiteratureDAO literatureDAO = ((AppDBLiterature) getApplicationContext()).getmLiteratureDB(););
         mbtnAdd = (findViewById(R.id.btnAdd));
         mbtnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new Thread(){
+                new Thread() {
                     @Override
                     public void run() {
-                        literatureDAO.insertListliteratures(Arrays.asList(new Listliterature(new Random().nextInt(),"LinearAlgebra", "google inc")));
+
+                        Listliterature mlistliterature = new Listliterature();
+
+                        EditText Discipline = (EditText) findViewById(R.id.Discipline);
+                        mlistliterature.mNameDiscipline = Discipline.getText().toString();
+
+                        EditText Links = (EditText) findViewById(R.id.Links);
+                        mlistliterature.mLink = Links.getText().toString();
+
+                        literatureDAO.insert(mlistliterature);
+
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(TeacherActivity.this, appDBLiterature.toString(), Toast.LENGTH_LONG).show();
+                            }
+                        });
+
+
                     }
                 }.start();
-
             }
+
+            ;
         });
         mbtnGet = findViewById(R.id.btnRead);
         mbtnGet.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                literatureDAO.getTeachers().observe(TeacherActivity.this, new Observer<List<Teachers>>() {
+
+                appDBLiterature.literatureDAO().getListliteratures().observe(TeacherActivity.this, new Observer<List<Listliterature>>() {
                     @Override
-                    public void onChanged(List<Teachers> teachers) {
-                        Toast.makeText(TeacherActivity.this,teachers.toString(),Toast.LENGTH_LONG).show();
+                    public void onChanged(List<Listliterature> listliteratures) {
+                        Toast.makeText(TeacherActivity.this,appDBLiterature.toString(),Toast.LENGTH_LONG).show();
                     }
                 });
 
+             //   LiteratureDB appDBLiterature = AppDBLiterature.getInstance().getDatabase();
 
 
                 /* new Thread(){
